@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1em;
+  /* background-color: #2B2E31; */
+  background-image: url('./assets/blackbackground.jpg');
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 1em auto;
+}
+
+.search-area{
+  width: 100%;
+}
+
+.search-area > form{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+}
+
+h1.App-header {
+  color: #E7E5DF;
+  border-bottom: 0.4em solid #E7BB41;
+  padding: 0 0.2em 0.2em 0;
+  display: table-cell;
+  font-size: 3em;
+}
+
+input.search-box{
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 1.5em;
+  padding: 0.2em;
+  width: 60%;
+}
+
+.search-btn{
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+}
+
+.search-btn:hover{
+  border: 1px solid #2B2E31;
+  cursor: pointer;
+}
+
+.search-results{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-summary-container{
+  width: 20em;
+  min-height: 25em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em;
+  align-items: center;
+  position: relative;
+  margin: 0.5em;
+}
+
+.item-teaser{
+  width:100%;
+  height:90%;
+  object-fit: fill;
+  margin-bottom: 1em
+}
+
+.item-summary-name{
+  color: #dedede;
+  font-size: 1.2em;
+  font-weight: bolder
+}
+
+.teaser-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2B2E31;
+  opacity: 96%;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.item-summary-container:hover{
+  cursor: pointer;
+}
+
+.item-summary-container:hover .teaser-overlay {
+  height: 40%;
+}
+
+.teaser-overlay-text {
+  color: white;
+  font-size: 1em;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 2em;
+}
+
+.item-type-badge{
+  background-color: #44BBA4;
+  display: inline-block;
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.5em;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 800;
+  border: 0.1em solid white
+}

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { MOVIE_SEARCH } from '../utils/constants';
 import { httpGet } from '../utils/rest';
 import ItemSummary from './ItemSummary';
 import ResultMessage from './ResultMessage';
@@ -9,7 +10,7 @@ export default function Gallery() {
     const [searchResultsReady, setSearchResultsReady] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
 
-    httpGet('https://www.omdbapi.com/?s=pizza&apikey=e4b4581b')
+    httpGet(MOVIE_SEARCH('pizza'))
         .then((response) => {
             if(response.data.Response === 'True')
                 setSearchResults(response.data.Search);

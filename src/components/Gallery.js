@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { MOVIE_SEARCH } from '../utils/constants';
 import { httpGet } from '../utils/rest';
 import ItemSummary from './ItemSummary';
@@ -10,7 +10,8 @@ export default function Gallery() {
     const [searchResultsReady, setSearchResultsReady] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
 
-    httpGet(MOVIE_SEARCH('pizza'))
+    useEffect(() => {
+        httpGet(MOVIE_SEARCH('pizza'))
         .then((response) => {
             if(response.data.Response === 'True')
                 setSearchResults(response.data.Search);
@@ -18,6 +19,7 @@ export default function Gallery() {
         }, (error) => {
             console.log(error);
         });
+    }, [])
 
 
     return (
